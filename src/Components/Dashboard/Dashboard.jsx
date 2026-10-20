@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import DashboardContent from '../DashboardContent/DashboardContent.jsx';
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(
+    () => !window.matchMedia('(max-width: 768px)').matches
+  );
+
+  useEffect(() => {
+    const mobileViewport = window.matchMedia('(max-width: 768px)');
+    const updateSidebar = () => setIsSidebarOpen(!mobileViewport.matches);
+
+    mobileViewport.addEventListener('change', updateSidebar);
+    return () => mobileViewport.removeEventListener('change', updateSidebar);
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev);

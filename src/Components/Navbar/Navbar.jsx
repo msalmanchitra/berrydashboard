@@ -52,8 +52,18 @@ export default function Navbar({ toggleSidebar, isSidebarOpen }) {
         </button>
 
         {/* Profile Avatar */}
-        <div className="berry-profile-avatar">
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User Avatar" />
+        <div className="berry-profile-avatar" aria-label="Berry profile icon">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="20" fill="#EDE7F6" />
+            <path d="M20 13c-1.8-4.2-5.7-5.5-9-4.5.1 4.1 3 7.1 8 7.4" fill="#00C853" />
+            <path d="M20 13c1.8-4.2 5.7-5.5 9-4.5-.1 4.1-3 7.1-8 7.4" fill="#00E676" />
+            <path d="M20 13v5" stroke="#2E7D32" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M20 15c-6.5 0-10.5 4.5-10.5 9.5a10.5 10.5 0 0 0 21 0c0-5-4-9.5-10.5-9.5Z" fill="#5E35B1" />
+            <circle cx="15.5" cy="23" r="1.3" fill="#B39DDB" />
+            <circle cx="21" cy="20.5" r="1.3" fill="#B39DDB" />
+            <circle cx="24.5" cy="26" r="1.3" fill="#B39DDB" />
+            <circle cx="18" cy="29" r="1.3" fill="#B39DDB" />
+          </svg>
         </div>
       </div>
     </header>
